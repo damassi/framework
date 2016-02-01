@@ -1,0 +1,98 @@
+//
+// Form Wells
+// --------------------------------------------------
+// Follows this pattern:
+//    .form-well
+//      .form-well-header
+//      .form-well-body
+//        .row
+//          .form-group.col-6 (etc)
+//        .row
+//        .row
+
+
+// Parent container
+// -------------------------
+
+.form-well {
+  position: relative;
+  padding: 0;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  background-color: lighten($toolkit-border-color, 20%);
+  border: 1px solid lighten($toolkit-border-color, 10%);
+
+  // Right now this is specific to the cost estimate panels
+  table {
+    width: 100%;
+    table-layout: fixed;
+
+    tr {
+      padding-bottom: 5px;
+    }
+
+    td {
+      padding: 0 3px;
+      vertical-align: bottom;
+    }
+
+    .input-group-addon {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+
+  // Shrink down padding to make forms slightly more compact
+  .form-group {
+    margin-bottom: ($spacer * .75)
+  }
+  label {
+    margin-bottom: 3px
+  }
+}
+
+
+// Header
+// -------------------------
+
+.form-well-header {
+  @include clearfix();
+  border-bottom: 1px solid lighten($toolkit-border-color, 10%);
+
+  h5 {
+    font-weight: normal;
+    color: $gray-light;
+    padding-left: ($spacer * .75)
+  }
+}
+
+
+// Body
+// -------------------------
+
+.form-well-body {
+  padding: ($spacer * .75);
+
+  // Remove padding from .form-group items because they should be wrapped in
+  // .col and .row classes. Put the margins on the .row instead
+  .form-group {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+
+    // Override stuff nested in .form-horizontal
+    .control-label {
+      margin-bottom: inherit;
+      text-align: inherit;
+      padding-top: inherit;
+    }
+  }
+
+  .row {
+    margin-bottom: ($spacer * .5);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

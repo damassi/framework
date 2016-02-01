@@ -1,0 +1,62 @@
+//
+// Forms
+// --------------------------------------------------
+
+
+// Style enhancements/additions
+// -------------------------
+
+// Disabled fields
+.form-group.disabled {
+  opacity: .25;
+}
+
+// Remove input increment UI element on input[type='number']
+// http://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+// Style overrides
+// -------------------------
+
+.help-block {
+  color: $gray;
+}
+
+.form-control {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.dropdown-header {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+// Field indicators
+// -------------------------
+// Used to indicate which fields are required and which are included in emails to photographers
+
+.field-indicator {
+  margin-left: 4px;
+  top: -.25em;
+  font-size: 13px;
+  color: $state-danger-text;
+
+  &:hover {
+    cursor: help;
+  }
+}
+
+.field-indicator-photographer-email {
+  font-family: 'Times New Roman', sans-serif;
+  color: inherit;
+}

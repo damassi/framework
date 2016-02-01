@@ -1,0 +1,104 @@
+//
+// React Select
+// --------------------------------------------------
+// The source files copied from the react-select project are in `./src`
+// Here we set any variables provided by react-select in order to override
+// the defaults and better match the styling of react-select to our application.
+// By doing this, we also have access to any sass variables in our project,
+// including bootstrap variables
+//
+// NOTE: The current files in `./src` are from react-select 1.0.0-beta8
+
+
+// Custom Sass variable overrides
+// -------------------------
+
+$select-input-border-color: $input-border;
+$select-item-hover-color: transparent;
+$select-input-border-focus: $input-border-focus;
+
+// React select styles
+// -------------------------
+
+@import './src/default';
+
+// Additional CSS overrides
+// -------------------------
+
+// Copied from bootstrap and altered to not use pseudo class :focus
+@mixin react-select-form-control-focus($color: $input-border-focus) {
+  $color-rgba: rgba(red($color), green($color), blue($color), .6);
+  border-color: $color;
+  outline: 0;
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $color-rgba);
+}
+
+.Select-control {
+  // matches bootstrap style for .form-control
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+
+  &:hover {
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+    cursor: text;
+  }
+
+  .is-focused & {
+    @include react-select-form-control-focus();
+  }
+}
+
+// Error styles
+// Based on how bootstrap does form errors
+// @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+// which calls the mixin `form-control-validation`
+.has-error {
+  .Select-control {
+    border-color: $state-danger-text;
+  }
+
+  .Select.is-focused .Select-control {
+    border-color: darken($state-danger-text, 10%);
+    $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($state-danger-text, 20%);
+    @include box-shadow($shadow);
+  }
+}
+
+// Hacky override for having to use multi={true} even when only one option
+// is selectable
+.Select--multi.Select--multi-max1 {
+    .Select-value-icon {
+      display: none;
+    }
+    .Select-value-label {
+      padding: 0;
+      cursor: text;
+    }
+
+    .Select-control {
+      display: block;
+    }
+
+    .Select-arrow-zone {
+      float: right;
+      margin-top: 7px;
+    }
+
+    .Select-value {
+      border: 0;
+      background: transparent;
+      color: $gray-dark;
+      font-size: 1em;
+      margin-left: 7px;
+      margin-top: 6px;
+
+      // Truncate if too long
+      max-width: 85%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .Select-clear-zone {
+      display: none;
+    }
+}

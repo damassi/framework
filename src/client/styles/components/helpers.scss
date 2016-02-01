@@ -1,0 +1,73 @@
+//
+// Helper classes
+// --------------------------------------------------
+// Additional helper classes not provided by Bootstrap framework or 'Application' theme
+
+
+// Text styles
+// -------------------------
+
+.text-bold {
+  font-weight: 700 !important;
+}
+
+.text-italic {
+  font-style: italic !important;
+}
+
+.text-truncate {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+// Bordered elements
+// -------------------------
+// Put this on any <li> or <ul> that needs to be bordered separated
+// Mostly used for .attr-val-list items
+
+li.bordered,
+ul.bordered {
+  border-top: 1px solid lighten($gray-lighter, 5%);
+  border-bottom: 1px solid lighten($gray-lighter, 5%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  //margin: 5px 0;
+
+  &:first-child {
+    border-top: 0;
+    margin-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  + .bordered {
+    border-top: 0;
+  }
+}
+
+li.half-bordered,
+ul.half-bordered {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 1px;
+    background: lighten($gray-lighter, 5%);
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}

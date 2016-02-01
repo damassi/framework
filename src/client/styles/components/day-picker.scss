@@ -1,0 +1,90 @@
+//
+// DayPicker
+// --------------------------------------------------
+// Styles for DayPicker variations
+
+
+// Form Group
+// -------------------------
+// DayPicker used in context of .form-group, like on the create view
+
+.form-group {
+  .DayPicker {
+    position: absolute;
+    left: -10px;
+    top: 35px;
+    border: 1px solid $gray-lighter;
+    background: #fff;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+    border-radius: 3px;
+
+    // Up pointing caret
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    &:before {
+      top: -6px;
+      left: 23px;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid $gray-lighter;
+    }
+
+    &:after {
+      top: -5px;
+      left: 24px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid white;
+    }
+  }
+}
+
+// Advanced Search
+// -------------------------
+// DayPicker used in context of the advanced search modal.
+// This picker is for a date-range
+
+.advanced-search-modal {
+  .DayPicker {
+    position: absolute;
+    width: 500px;
+    background: #fff;
+    border: 1px solid $table-border-color;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .333);
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    margin-left: -230px;
+
+    &:after,
+    &:before {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+    }
+
+    &:after {
+      top: -5px;
+      left: 49%;
+      border-left: 5px solid transparent;
+    	border-right: 5px solid transparent;
+    	border-bottom: 5px solid white;
+    }
+    &:before {
+      top: -6px;
+      left: calc(49% - 1px);
+      border-left: 6px solid transparent;
+    	border-right: 6px solid transparent;
+    	border-bottom: 6px solid $table-border-color;
+    }
+  }
+}

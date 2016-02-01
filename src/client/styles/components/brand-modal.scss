@@ -1,0 +1,80 @@
+//
+// Brand Modal
+// --------------------------------------------------
+// Modal window for choosing a brand
+
+
+.brand-modal-form {
+  border-top: 1px solid $gray-lighter;
+
+  .form-group {
+    margin: 10px 0;
+  }
+}
+
+.brand-modal-list {
+  border-top: 1px solid $gray-lighter;
+
+  // Image containers
+  li {
+    border-bottom: 1px solid $gray-lighter;
+    text-align: center;
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+    line-height: 130px;
+    position: relative;
+
+    // Select checkmarks
+    .icon-check {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      line-height: 21px;
+      color: white;
+      border: 1px dashed $gray-light;
+      border-radius: 3px;
+      top: 10px;
+      right: 10px;
+    }
+
+    &:hover .icon-check {
+      color: $gray-light;
+    }
+
+    &.active .icon-check {
+      background-color: $brand-primary;
+      color: white;
+      border: 1px solid $brand-primary;
+    }
+
+    // Bordering magic to get the right bordering no matter the item count
+    &:nth-child(odd) {
+      border-right: 1px solid $gray-lighter;
+    }
+
+    &:last-child,
+    &:nth-last-child(2):nth-child(odd) {
+      border-bottom: 0;
+    }
+
+    // Have links fill entire block area
+    a {
+      display: block;
+      position: relative;
+    }
+
+    // Brand image sizing control
+    img {
+      max-width: 200px;
+      max-height: 50px;
+    }
+
+    // Acive element
+    &.active {
+      a:hover {
+        cursor: default;
+      }
+    }
+  }
+}

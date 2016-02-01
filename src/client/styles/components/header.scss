@@ -1,0 +1,155 @@
+//
+// Header
+// --------------------------------------------------
+// These are a little ugly, but it's because they are mostly
+// overrides and additions to the bootstrap defaults for header styling
+//
+// NOTE: Everything in this file which uses `!important` is an override of
+// default Bootstrap styles in order to make header fixed width.
+// If/when this app goes responsive, you should remove these.
+
+
+header.header-container { // Prefix with `header` to increase specificity & overrride bootstrap
+
+  // Parent Container
+  // -------------------------
+  .navbar {
+    border: 0;
+    border-bottom: 1px solid darken($brand-primary, 7%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+  }
+
+  // Left Side Header Items
+  // -------------------------
+  // Logo and navigation items
+
+  // Styles interaction and borders on left nav items
+  a.navbar-brand,
+  .nav-items a {
+    color: white;
+    border-right: 1px solid rgba(255, 255, 255, .15);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .1);
+    }
+  }
+
+  // Logo
+  .navbar-brand {
+    float: left !important;
+    margin-left: -15px !important;
+    border-left: 1px solid rgba(255, 255, 255, .15)
+  }
+
+  // NavItems (list of nav items, assignment, vendors, etc.)
+  .nav-items {
+    float: left !important;
+    margin: 0 !important;
+
+    li {
+      float: left !important;
+
+      a {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+      }
+    }
+
+    // Active navitem has down pointing caret
+    .active {
+      position: relative;
+
+      &:before {
+        content: '';
+        width: 0;
+      	height: 0;
+      	border-left: 6px solid transparent;
+      	border-right: 6px solid transparent;
+      	border-top: 5px solid darken($brand-primary, 10%);
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        margin-left: -5px;
+      }
+
+      &:after {
+        content: '';
+        width: 0;
+      	height: 0;
+      	border-left: 6px solid transparent;
+      	border-right: 6px solid transparent;
+      	border-top: 5px solid $brand-primary;
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        margin-left: -5px;
+      }
+    }
+
+    .icon {
+      margin-right: 6px;
+    }
+  }
+
+  // Applicable to both left and right header list items
+  .navbar-nav > li {
+    float: left !important;
+  }
+
+  // Right Side Header Items
+  // -------------------------
+  // Brand switcher and create button
+
+  // Tweak brand button img position and coloring
+  .navbar-right {
+    float: right !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+
+    .btn-default {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: white;
+      }
+    }
+
+    .caret,
+    img {
+      position: relative;
+      top: -1px;
+    }
+
+    img {
+      margin-right: 2px;
+    }
+  }
+
+  // Tweak brand switcher logo position
+  .brand-switcher {
+    img {
+      max-height: 17px;
+    }
+  }
+
+  // Create button style
+  .btn-header {
+    font-weight: bold;
+  }
+}
+
+// Hacky Fix
+// This is a hacky fix to keeping header's right-side buttons visible at
+// currently-unsupported screen widths
+@media screen and (max-width: 1024px) {
+  .navbar {
+    position: static;
+    margin-bottom: 20px;
+    margin-top: -70px; // should match bottom padding of .app-container
+    min-width: 1024px;
+  }
+  .navbar-right {
+    margin-right: 0 !important;
+  }
+}

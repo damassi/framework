@@ -1,0 +1,63 @@
+//
+// Preloader
+// --------------------------------------------------
+
+
+// App Preloader
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, .75);
+  text-align: center;
+  z-index: 1000;
+
+  span {
+    display: inline-block;
+    max-width: 320px;
+    min-width: 180px;
+    margin-top: 90px;
+    border-radius: 5px;
+    padding: 80px 20px 40px;
+    font-size: 18px;
+    color: white;
+    background: rgba($brand-primary, .975) url('/assets/images/preloader.gif') no-repeat 50% 40px;
+    background-size: 32px;
+    box-shadow: 0 0 0 5px rgba($brand-primary, .125);
+  }
+}
+
+// Table preloader
+.table-preloader {
+  position: relative;
+
+  &:before,
+  &:after {
+    z-index: 100;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .925);
+  }
+
+  &:after {
+    content: 'Loading...';
+    background: url('/assets/images/preloader-bw.gif') no-repeat 50% 40px;
+    background-size: 32px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 80px;
+  }
+}

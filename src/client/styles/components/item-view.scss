@@ -1,0 +1,107 @@
+//
+// Item View
+// --------------------------------------------------
+// Styes for the individaul item views, i.e. /assignments/:id, /vendors/:id
+
+
+.item-view {
+
+  // Panel Heading
+  // -------------------------
+  // This is bold, has optional .panel-create-new which is a '+' link to creating
+  // or requesting to create a new type of that item
+  .panel-heading {
+    position: relative;
+
+    .panel-create-new {
+      color: $brand-primary;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 41px;
+      height: 41px;
+      line-height: 41px;
+      border-left: 1px solid lighten($toolkit-border-color, 10);
+      text-align: center;
+
+      &:hover {
+        background: rgba(0, 0, 0, .05);
+
+        .icon {
+          color: darken($link-color, 10%);
+        }
+      }
+
+      .icon {
+        font-size: 22px;
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        width: 41px;
+        height: 41px;
+      }
+    }
+  }
+}
+
+// Heading
+// -----------------------
+
+.item-view-heading {
+  h2 {
+    margin-top: 0;
+  }
+}
+
+// Vendor View
+// -----------------------
+// Styles specifically used on the vendor view only
+
+#vendor-basics {
+  .panel-body {
+    position: relative;
+  }
+
+  .vendor-type-icon {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+}
+
+#vendor-contact-info {
+  .val {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .addresses {
+    > li {
+      padding: 5px 0;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+#contract-signed {
+  .request-via-email {
+    .icon {
+      font-size: 25px;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      display: block;
+      margin: 0 auto 6px;
+      border: 1px solid $toolkit-border-color;
+      border-radius: 30px;
+    }
+  }
+}

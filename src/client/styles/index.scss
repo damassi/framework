@@ -1,0 +1,65 @@
+//
+// CSS Index
+// --------------------------------------------------
+// This serves as our main CSS file
+//
+// The app uses Bootstrap as a framework, with the 'Application' theme on top
+//    http://themes.getbootstrap.com/products/application
+//
+// Structure
+// ---
+// All Bootstrap and 'Application' theme styles can be found in:
+//    - `styles/vendor`
+//
+// Custom styles on top of the Bootstrap and Application themes can be found in:
+//    - `/components`
+// These generally consist of style overrides, or new styles not provided by the
+// theme or framework
+//
+//
+// Note: Vendor styles have been *mostly* untouched but do have some changes in them
+// Example changes to `/vendor`
+//    - bootstrap/custom/forms-custom.scss 179-188
+//    - Various variables in `toolkit.scss`. This is because these variables
+//      need to be set BEFORE and not after the bootstrap file is imported,
+//      as other variables are calculated based on their values.
+//
+// As for CSS naming, structure, code commenting, etc., we try to follow
+// Bootstrap's conventions, as to not mix naming patterns, etc.
+
+
+// Vendor
+// -----------------------
+// `toolkit.scss` imports everything we need from the Bootstrap framework
+// as well the 'Application' theme
+// The other files are dependencies for specific react UI modules
+
+@import "./vendor/bootstrap/toolkit.scss";
+@import "./vendor/react-day-picker/DayPicker.scss";
+@import "./vendor/react-day-picker/SelectableDayExample.scss";
+@import "./vendor/react-json-inspector/json-inspector.scss";
+@import "./vendor/react-select/ReactSelect.scss";
+
+// Custom
+// -----------------------
+// These are all of our custom CSS components which override theme/framework
+// styles or add additional styles not provided by the theme/framework
+
+@import "./components/app.scss";
+@import "./components/attachments.scss";
+@import "./components/attr-val-list.scss";
+@import "./components/brand-modal.scss";
+@import "./components/create-view.scss";
+@import "./components/day-picker.scss";
+@import "./components/filetype-icon.scss";
+@import "./components/footer.scss";
+@import "./components/form-well.scss";
+@import "./components/forms.scss";
+@import "./components/header.scss";
+@import "./components/helpers.scss";
+@import "./components/item-view.scss";
+@import "./components/list-view.scss";
+@import "./components/outside-app.scss";
+@import "./components/preloader.scss";
+@import "./components/vendor-popover.scss";
+@import "./components/email-aggregator.scss";

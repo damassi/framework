@@ -1,0 +1,5 @@
+export const ADD = 'ADD'
+export const DUPLICATE = 'DUPLICATE'
+export const REMOVE = 'REMOVE'
+export const RESET = 'RESET'
+export const UPDATE = 'UPDATE'

@@ -1,0 +1,23 @@
+machine:
+  node:
+    version: 5.4.0
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - rm -rf ./node_modules
+    - ./scripts/npmrc.sh
+
+test:
+  override:
+    - npm test
+
+deployment:
+  docker:
+    branch: master
+    commands:
+      - ./scripts/dockercfg.sh
+      - TERM=dumb docker build -t timeinc.artifactoryonline.com/timeinc/edit-rights-www .
+      - TERM=dumb docker tag timeinc.artifactoryonline.com/timeinc/edit-rights-www timeinc.artifactoryonline.com/timeinc/edit-rights-www:$CIRCLE_SHA1
+      - TERM=dumb docker push timeinc.artifactoryonline.com/timeinc/edit-rights-www

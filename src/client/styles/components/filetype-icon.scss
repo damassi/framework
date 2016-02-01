@@ -1,0 +1,104 @@
+//
+// Filetype icons
+// --------------------------------------------------
+// Specify the filetype in the "data-filetype" attr
+// i.e. <span class='filetype-icon' data-filetype='pdf'></span>
+
+
+.filetype-icon {
+  display:inline-block;
+  width:30px;
+  height:40px;
+  background:#F9F9F9;
+  position:relative;
+  border:1px solid #E6E6E6;
+  border-radius:2px;
+  box-shadow:
+    inset 1px 1px 0 0 #ffffff,
+    inset -1px -1px 0 0 #ffffff,
+    inset 0 10px 20px -10px rgba(0,0,0,.05);
+
+  // Icon corner
+  &:before {
+    content: '';
+    display:block;
+    position:absolute;
+    top:-1px;
+    right:-1px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid #eeeeee;
+    // change this color if you want to use it on custom background
+    border-top: 12px solid #ffffff;
+    box-shadow:-1px 1px 0px 0 #E6E6E6;
+  }
+
+  // Icon filetype
+  &:after {
+    content: attr(data-filetype);
+    font-weight: normal;
+    background:#777;
+    text-align:center;
+    display:block;
+    position:absolute;
+    bottom:4px;
+    left:-4px;
+    height:15px;
+    line-height:15px;
+    font-size:10px;
+    color:#fff;
+    border-radius:1px;
+    width:25px;
+    padding: 0 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+  }
+
+  // Coloring
+  // --------------------
+  // Roughly categorized by type (default: gray)
+
+  @mixin filetype-colors($files, $color) {
+    @each $file in $files {
+      &[data-filetype*="#{$file}"]:after {
+        background: $color;
+      }
+    }
+  }
+
+  // MS Office Blue
+  @include filetype-colors(doc docx odt, #2B579A);
+
+  // MS Office Orange
+  @include filetype-colors(ppt pptx pps ppsx, #D24726);
+
+  // MS Office Green
+  @include filetype-colors(xls xlsx, #217346);
+
+  // Red
+  @include filetype-colors(pdf, #B80C09);
+
+  // Light blue (images)
+  @include filetype-colors(svg jpg jpeg png gif, #01BAEF);
+
+  // Light green (audio)
+  @include filetype-colors(mp3 m4a ogg wav, #70AE6E);
+
+  // Tan (video)
+  @include filetype-colors(mp4 m4v mov wmv avi mpg ogv 3gp 3g2, #F18F01);
+}
+
+/*
+Possible icon types
+https://github.com/maxbmx/Super-simple-CSS-file-types-icons
+
+Text File - text
+Powerpoint/Keynote - blackboard
+Data file - cog
+audio files - beamed-note music note sound
+video - conroller-play video
+image file - image
+vector images - layers
+*/

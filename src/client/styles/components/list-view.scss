@@ -1,0 +1,99 @@
+//
+// List View
+// --------------------------------------------------
+// Styes for the list views, i.e. /assignments, /vendors
+
+
+.list-view {
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  .list-view-filter {
+    float: right;
+    margin-left: 6px;
+  }
+
+  // Clear Input field
+  // FIXME: Revisit at some point and try to make consistent across views
+  //
+  // This is a kinda-hacky way of doing this
+  // But with the current implementation, it's really the only way because
+  // positing depends on button type (split or regular button)
+  // In this case, we make the vendor/contract positioning the default `right` value
+  // and give assignments it's own value for the `right` position
+  .icon-circle-with-cross {
+    position: absolute;
+    top: 0;
+    right: 80px;
+    z-index: 2;
+    top: 7px;
+    opacity: .35;
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+  &#assignments .icon-circle-with-cross {
+    right: 105px;
+  }
+
+
+  .table-responsive {
+    min-height: 300px;
+    background: #fff;
+    border: 1px solid $table-border-color;
+    border-radius: 3px;
+    margin-top: 10px;
+    position: relative;
+  }
+
+  .table-item-counter {
+    margin-top: 6px;
+  }
+
+  .table {
+    margin: 0;
+
+    thead th,
+    tbody td {
+      &:first-child {
+        padding-left: $spacer;
+      }
+      &:last-child {
+        padding-right: $spacer;
+      }
+    }
+
+    th {
+      white-space: nowrap;
+
+      // Don't select the text
+      // http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    // Make cells clickable with cursor
+    // But only <tbody> items if it has a table-hover class (meaning it's not empty)
+    thead th,
+    &.table-hover tbody tr {
+      cursor: pointer;
+    }
+  }
+
+  // Fix for showing inline segmeted Button
+  // Due to the way react-bootstrap implements the markup here
+  // we have to manually override some improper CSS
+  .search-dropdown {
+    &.btn-group > .btn {
+      float: none;
+    }
+  }
+}

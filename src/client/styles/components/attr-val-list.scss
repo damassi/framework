@@ -1,0 +1,90 @@
+//
+// Attr Value List
+// --------------------------------------------------
+// We use <ul> lists to represent atrribute/value pairs
+// Modifier classes are prefixed with 'avl-'
+
+
+.attr-val-list {
+
+  // Resets
+  margin: 0;
+  padding: 0;
+  line-height: 1.325;
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  // Styles for all <li> children
+  > li {
+    @include clearfix();
+    padding: 5px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  // Layout modifiers
+  // -------------------------
+  // These are prefixed with a shortened version of the name, i.e. 'avl-'
+
+  // Column layout
+  //
+  // Gets you the left/right layout
+
+  &.avl-cols {
+    .attr {
+        width: 115px;
+        display: block;
+        float: left;
+    }
+
+    .val {
+        display: block;
+        margin-left: 130px;
+    }
+  }
+
+  // Column emphasized keys
+  //
+  // Gets you bolded keys in a column layout
+
+  &.avl-cols-bold {
+    .attr {
+      font-weight: bold;
+    }
+  }
+
+  // Flat layout
+  //
+  // Gets you italicized keys and inline keys/vals
+
+  &.avl-flat {
+    .attr,
+    .val {
+      display: inline;
+    }
+
+    .attr {
+      font-style: italic;
+    }
+  }
+
+  // Cost estimates panel
+  //
+  // Unique styles just for this specific panel
+  
+  &#cost-estimates {
+    .val {
+      text-align: right;
+    }
+  }
+}

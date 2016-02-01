@@ -1,0 +1,104 @@
+//
+// App
+// --------------------------------------------------
+// App-wide overrides and styles
+// Along with other general bootstrap and theme overrides
+
+body {
+  font-weight: normal;
+}
+
+// App Container
+// -------------------------
+// Footer display at bottom of viewport (cross-browser CSS)
+// https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+// 1. Avoid the IE 10-11 `min-height` bug.
+// 2. Set `flex-shrink` to `0` to prevent some browsers from
+//    letting these items shrink to smaller than their content's default
+//    minimum size. See http://bit.ly/1Mn35US for details.
+// 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; // 1, 3
+  min-height: 100vh;
+  padding-top: ($navbar-height + $spacer); // Offset for fixed position header
+}
+
+.main-container {
+  flex: 1 0 auto; // 2
+}
+
+// Remove bootstrap focus, active, hover outlines
+:focus,
+:active,
+:hover {
+  outline: none !important;
+}
+
+// Since we are only supporting a 'desktop' experience
+// we will set the desktop container to have a percentage width that maxes out
+// at a specified width, but also has a min-width of 994 (1024 - 30 for grid gutters)
+// This means we basically support 1024px widths and up
+// NOTE: This means that, for now, in most places we use bootstrap's `col-xs-`
+// grid classes as these won't break at smaller widths.
+// This helps us not have a 'responsive' layout inside a fixed-width container
+.container {
+  width: 92%;
+  max-width: 1350px;
+  min-width: 994px; // 1024
+}
+
+// Panel Overrides
+// -------------------------
+// Style overrides for the default bootstrap panel styling
+
+.panel-default,
+.panel-default > .panel-heading  {
+  border-color: #CADCE4;
+}
+
+.panel-default > .panel-heading,
+.table th {
+  background-color: #D1F0FB;
+}
+
+.panel-title {
+  font-size: $font-size-base;
+}
+
+.panel-heading {
+  font-weight: bold;
+}
+
+// Header button
+// -------------------------
+// Generate our own button style for the header button
+
+.btn-header {
+  @include button-variant(#fff, #1F546B, darken(#1F546B, 5%));
+}
+
+// System Error
+// -------------------------
+// Styles for the system error page.
+// This page should override any other content on the page.
+
+.has-system-error {
+  > div  {
+    position: fixed;
+  }
+}
+
+.system-error {
+  overflow: scroll;
+  text-align: center;
+  padding: ($spacer * 2) 0;
+  background: $body-bg;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001; // 1 more than .preloader
+}

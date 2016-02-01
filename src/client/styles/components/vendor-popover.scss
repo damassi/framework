@@ -1,0 +1,44 @@
+//
+// Vendor Popover
+// --------------------------------------------------
+// Styles related to the vendor popover widget along with the vendor-type-icon
+// which is used to differentiate a person vendor from a company vendor
+
+.vendor-popover-trigger {
+  padding: 0 6px;
+  line-height: 1;
+  margin-left: 5px;
+
+  .icon {
+    font-size: 15px;
+    position: relative;
+    top: -1px;
+  }
+}
+
+.vendor-popover {
+  min-width: 320px;
+
+  // User or Company icon on popover
+  .icon {
+    opacity: .325;
+    font-size: 16px;
+    margin-top: -3px;
+
+    &:hover {
+      cursor: help;
+    }
+  }
+}
+
+.vendor-type-icon {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #ddd;
+  display: block;
+  border-radius: 3px;
+  font-size: 20px;
+}
