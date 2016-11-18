@@ -74,8 +74,6 @@
     "yargs": "^3.26.0"
   },
   "dependencies": {
-    "ape-config": "^1.0.4",
-    "ape-dam-entity-client": "0.0.23",
     "aws-sdk": "^2.2.6",
     "axios": "^0.8.1",
     "babel-core": "^6.3.15",
